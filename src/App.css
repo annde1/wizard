@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+.hide {
+  display: none;
+}
+.input {
+  width: 12rem;
+  height: 1.5rem;
+  margin-bottom: 1rem;
+}
+.label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
