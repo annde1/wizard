@@ -3,7 +3,7 @@ import "./App.css";
 import Summary from "./components/Summary";
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(1); //init current step
   const [newUser, setNewUser] = useState({
     username: "",
     password: "",
@@ -11,15 +11,17 @@ function App() {
     lastname: "",
     email: "",
     city: "",
-  });
+  }); //init new user
 
   const [errors, setErrors] = useState({
     username: "",
     password: "",
     personalDetails: "",
-  });
+  }); //init error
+
   const numSteps = 4;
 
+  //helper function that validates the current step, will return true or false
   const validateStep = (currentStep) => {
     const errors = {};
     if (currentStep === 1 && !newUser.username) {
@@ -37,7 +39,7 @@ function App() {
       }
     }
     setErrors(errors);
-    //means there were no errors
+    //will return true if there were no error
     return Object.keys(errors).length === 0;
   };
   const handleGoToNext = () => {
