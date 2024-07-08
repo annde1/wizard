@@ -1,98 +1,99 @@
 import { useState } from "react";
 import "./App.css";
 import Summary from "./components/Summary";
+import Wizard from "./components/Wizard";
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(1); //init current step
-  const [newUser, setNewUser] = useState({
-    username: "",
-    password: "",
-    firstname: "",
-    lastname: "",
-    email: "",
-    city: "",
-  }); //init new user
+  // const [currentStep, setCurrentStep] = useState(1); //init current step
+  // const [newUser, setNewUser] = useState({
+  //   username: "",
+  //   password: "",
+  //   firstname: "",
+  //   lastname: "",
+  //   email: "",
+  //   city: "",
+  // }); //init new user
 
-  const [errors, setErrors] = useState({
-    username: "",
-    password: "",
-    personalDetails: "",
-  }); //init error
+  // const [errors, setErrors] = useState({
+  //   username: "",
+  //   password: "",
+  //   personalDetails: "",
+  // }); //init error
 
-  const numSteps = 4;
+  // const numSteps = 4;
 
-  //helper function that validates the current step, will return true or false
-  const validateStep = (currentStep) => {
-    const errors = {};
-    if (currentStep === 1 && !newUser.username) {
-      errors.username = "Username is required";
-    } else if (currentStep === 2 && !newUser.password) {
-      errors.password = "Password is required";
-    } else if (currentStep === 3) {
-      if (
-        !newUser.firstname ||
-        !newUser.lastname ||
-        !newUser.email ||
-        !newUser.city
-      ) {
-        errors.personalDetails = "All the fields are required";
-      }
-    }
-    setErrors(errors);
-    //will return true if there were no error
-    return Object.keys(errors).length === 0;
-  };
-  const handleGoToNext = () => {
-    //Need to check if the current step is done
-    //Only if validate step returns true we will increase the step
-    if (validateStep(currentStep)) {
-      setCurrentStep((curr) => curr + 1);
-    } else {
-      return;
-    }
-  };
+  // //helper function that validates the current step, will return true or false
+  // const validateStep = (currentStep) => {
+  //   const errors = {};
+  //   if (currentStep === 1 && !newUser.username) {
+  //     errors.username = "Username is required";
+  //   } else if (currentStep === 2 && !newUser.password) {
+  //     errors.password = "Password is required";
+  //   } else if (currentStep === 3) {
+  //     if (
+  //       !newUser.firstname ||
+  //       !newUser.lastname ||
+  //       !newUser.email ||
+  //       !newUser.city
+  //     ) {
+  //       errors.personalDetails = "All the fields are required";
+  //     }
+  //   }
+  //   setErrors(errors);
+  //   //will return true if there were no error
+  //   return Object.keys(errors).length === 0;
+  // };
+  // const handleGoToNext = () => {
+  //   //Need to check if the current step is done
+  //   //Only if validate step returns true we will increase the step
+  //   if (validateStep(currentStep)) {
+  //     setCurrentStep((curr) => curr + 1);
+  //   } else {
+  //     return;
+  //   }
+  // };
 
-  const handleGoToPrevious = () => {
-    setCurrentStep((curr) => curr - 1);
-  };
+  // const handleGoToPrevious = () => {
+  //   setCurrentStep((curr) => curr - 1);
+  // };
 
-  const handleUserNameChange = (e) => {
-    const username = e.target.value;
-    setNewUser({ ...newUser, username: username });
-  };
+  // const handleUserNameChange = (e) => {
+  //   const username = e.target.value;
+  //   setNewUser({ ...newUser, username: username });
+  // };
 
-  const handlePasswordChange = (e) => {
-    const password = e.target.value;
-    setNewUser({ ...newUser, password: password });
-  };
+  // const handlePasswordChange = (e) => {
+  //   const password = e.target.value;
+  //   setNewUser({ ...newUser, password: password });
+  // };
 
-  const handleFirstName = (e) => {
-    const firstname = e.target.value;
-    setNewUser({ ...newUser, firstname: firstname });
-  };
+  // const handleFirstName = (e) => {
+  //   const firstname = e.target.value;
+  //   setNewUser({ ...newUser, firstname: firstname });
+  // };
 
-  const handleLastName = (e) => {
-    const lastname = e.target.value;
-    setNewUser({ ...newUser, lastname: lastname });
-  };
+  // const handleLastName = (e) => {
+  //   const lastname = e.target.value;
+  //   setNewUser({ ...newUser, lastname: lastname });
+  // };
 
-  const handleEmailChange = (e) => {
-    const email = e.target.value;
-    setNewUser({ ...newUser, email: email });
-  };
+  // const handleEmailChange = (e) => {
+  //   const email = e.target.value;
+  //   setNewUser({ ...newUser, email: email });
+  // };
 
-  const handleCityChange = (e) => {
-    const city = e.target.value;
-    setNewUser({ ...newUser, city: city });
-  };
+  // const handleCityChange = (e) => {
+  //   const city = e.target.value;
+  //   setNewUser({ ...newUser, city: city });
+  // };
 
-  const handleSubmit = () => {
-    setCurrentStep((curr) => curr + 1);
-  };
+  // const handleSubmit = () => {
+  //   setCurrentStep((curr) => curr + 1);
+  // };
   return (
     <>
       <div className="center">
-        {currentStep <= numSteps && (
+        {/* {currentStep <= numSteps && (
           <h1>
             Step {currentStep} out of {numSteps}
           </h1>
@@ -189,7 +190,8 @@ function App() {
             <h1>You form has been submitted</h1>
             <p>Thank you!</p>
           </>
-        )}
+        )} */}
+        <Wizard />
       </div>
     </>
   );
